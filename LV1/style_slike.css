@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Abel', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: black;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.galerija {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galerija_item {
+    position: relative;
+    flex-basis: 30%;
+    margin: 0;
+    padding: 0;
+    background: white;
+}
+
+.naslov {
+    font-family: 'Abel', sans-serif;
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.galerija_image {
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10%;
+}
+
+.galerija_image,
+.lightbox_image{
+    width: 100%;
+    display: block;
+}
+
+.lightbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0,1); 
+    padding: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    background: rgba(0, 0, 0, .5);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.lightbox:target{
+    transform: scale(1,1);
+}
+
+.lightbox_content {
+    width: 75%;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 1em;
+    background: black;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    border: white 2px solid;
+    display: flex;
+    width: 2em;
+    height: 2em;
+    background: red;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.close::after {
+    content: 'x';
+    color: white;
+}
+
+.next {
+    position: absolute;
+    right: 20px;
+    top: 216px;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.next:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.next::after {
+    content: '>';
+    color: white;
+}
+
+.previous {
+    position: absolute;
+    left: 20px;
+    top: 216px;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20%;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.previous:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.previous::after {
+    content: '<';
+    color: white;
+}
+
+/* Smanjivanjem ekrana se smanjuje sadrzaj galerije */
+@media (max-width: 650px) {
+    .galerija_item {
+        transform: scale(0.7); 
+    }
+}
